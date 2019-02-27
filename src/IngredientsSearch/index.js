@@ -6,6 +6,7 @@ class IngredientsSearch extends Component {
 
 		this.state ={
 			search: '',
+			
 		}
 	}
 

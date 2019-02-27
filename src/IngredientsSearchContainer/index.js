@@ -8,8 +8,9 @@ class IngredientsSearchContainer extends Component {
 		super()
 
 		this.state ={
-			user: '',
-			userId: '',
+			ing_id: '',
+			ing_name: '',
+			ing_type: '',
 		}
 	}
 
@@ -32,9 +33,21 @@ class IngredientsSearchContainer extends Component {
 
 			const parsedResponse = await response.json()
 			console.log(parsedResponse);
+
+			this.setState({
+				ing_id: parsedResponse.id,
+				ing_name: parsedResponse.name,
+				ing_type: parsedResponse.type,
+			})
+
 		} catch (err) {
 			console.log(err)
 		}
+	}
+
+	addIngredient = (ing_id, e) => {
+		e.preventDefault()
+		console.log(`addIngredient was called ing_id is ${ing_id}, e is ${e}`);
 	}
 
 
@@ -43,7 +56,7 @@ class IngredientsSearchContainer extends Component {
 			<div>
 				<h1>ingredients search container</h1>
 				<IngredientsSearch searchIngredients={this.searchIngredients} />
-				<IngredientsResults results={null}/>
+				{this.state.ing_name ? <IngredientsResults results={this.state} addIngredient={this.addIngredient}/> : null}
 			</div>
 
 
