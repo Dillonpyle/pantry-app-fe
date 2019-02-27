@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import IngredientsContainer from './IngredientsContainer'
+import IngredientsSearchContainer from './IngredientsSearchContainer'
 import './App.css';
 
 class App extends Component {
@@ -65,7 +65,8 @@ class App extends Component {
             </label>
             <input type='Submit' />
           </form>
-        <IngredientsContainer />
+        <IngredientsSearchContainer />
+
       </div>
     );
   }
