@@ -18,6 +18,7 @@ class IngredientsSearch extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		console.log('handle submit was called');
+		this.props.searchIngredients(this.state.search, e)
 	}
 
 	render () {

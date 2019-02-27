@@ -15,8 +15,9 @@ class IngredientsSearchContainer extends Component {
 
 	searchIngredients = async (query, e) => {
 		e.preventDefault()
+		console.log(`search Ingredients being called with query:${query} and e:${e}`);
 		try {
-			const response = await fetch ('http://localhost:8000/api/v1/ingredients', {
+			const response = await fetch ('http://localhost:8000/api/v1/ingredients/search', {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
@@ -35,25 +36,13 @@ class IngredientsSearchContainer extends Component {
 			console.log(err)
 		}
 	}
-	// searchArtist = async (query, e) => {
-	// 	e.preventDefault()
-
-	// 	try {
-	// 		const response = await fetch (`${process.env.REACT_APP_API_URL}/api/v1/artist`, {
-	// 			method: 'POST',
-	// 			headers: {
-	// 				"Content-Type": "application/json",
-	// 			},
-	// 			credentials: 'include',
-	// 			
-
 
 
 	render() {
 		return (
 			<div>
 				<h1>ingredients search container</h1>
-				<IngredientsSearch />
+				<IngredientsSearch searchIngredients={this.searchIngredients} />
 				<IngredientsResults results={null}/>
 			</div>
 
