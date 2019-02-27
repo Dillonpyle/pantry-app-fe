@@ -5,8 +5,6 @@ class IngredientsSearch extends Component {
 		super()
 
 		this.state ={
-			user: '',
-			userid: '',
 			search: '',
 		}
 	}

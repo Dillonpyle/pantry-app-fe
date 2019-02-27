@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import IngredientsSearch from './IngredientsSearch'
+import IngredientsSearchContainer from './IngredientsSearchContainer'
 import './App.css';
 
 class App extends Component {
@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         Pantry App
-        <IngredientsSearch />
+        <IngredientsSearchContainer />
       </div>
     );
   }
