@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IngredientsSearchContainer from './IngredientsSearchContainer';
 import Home from './Home';
-import Register from './Register';
+import Register from './register';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 
@@ -63,7 +63,12 @@ class App extends Component {
       const parsedResponse = await loginResponse.json();
 
       if (loginResponse.ok) {
+        this.setState({
+          user_id: parsedResponse.id,
+          username: parsedResponse.username
+        });
         this.props.history.push('/home')
+        this.props.history.push('/ingredients')
       }
       console.log(this.state)
       console.log(parsedResponse)
@@ -73,11 +78,12 @@ class App extends Component {
     }
   }
   render() {
+    console.log(this.state);
     return (
       <main>
         <Switch>
           <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
-          <Route exact path='/IngredientsSearchContainer' render={() => <IngredientsSearchContainer user={this.state}/>} />
+          <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state}/>} />
           <Route exact path='/home' render={() => <Home />} />
         </Switch>
       </main>

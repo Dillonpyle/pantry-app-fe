@@ -4,7 +4,8 @@ const index = () => {
     return (
         <div>
             <h1 id='homeHeader'>Pantry</h1>
-            <div><button>Ingredients</button>
+            <div>
+            	<a href="/ingredients">Ingredients</a>
             </div>
 
         </div>
