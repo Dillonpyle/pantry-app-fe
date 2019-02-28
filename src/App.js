@@ -89,6 +89,7 @@ class App extends Component {
           username: parsedResponse.username
         });
         this.props.history.push('/home')
+        this.props.history.push('/ingredients')
       }
 
       console.log(this.state, "this is state")
@@ -99,6 +100,7 @@ class App extends Component {
     }
   }
   render() {
+    console.log(this.state);
     return (
       <React.Fragment>
         <main>

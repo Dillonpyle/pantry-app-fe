@@ -38,7 +38,7 @@ class IngredientsSearchContainer extends Component {
 			this.setState({
 				ing_id: parsedResponse.id,
 				ing_name: parsedResponse.name,
-				ing_type: parsedResponse.type,
+				ing_type: parsedResponse.typeof,
 			})
 
 		} catch (err) {
@@ -79,7 +79,7 @@ class IngredientsSearchContainer extends Component {
 
 
 	render() {
-		console.log(this.props)
+		console.log(this.props);
 		return (
 			<div>
 				<h1>ingredients search container</h1>
