@@ -4,10 +4,10 @@ import IngredientsResults from '../IngredientsResults'
 
 
 class IngredientsSearchContainer extends Component {
-	constructor () {
+	constructor() {
 		super()
 
-		this.state ={
+		this.state = {
 			ing_id: '',
 			ing_name: '',
 			ing_type: '',
@@ -17,18 +17,19 @@ class IngredientsSearchContainer extends Component {
 	searchIngredients = async (query, e) => {
 		e.preventDefault()
 		console.log(`search Ingredients being called with query:${query} and e:${e}`);
+
 		try {
-			const response = await fetch ('http://localhost:8000/api/v1/ingredients/search', {
+			const response = await fetch('http://localhost:8000/api/v1/ingredients/search', {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
 				},
 				credentials: "include",
-				body: JSON.stringify({search: query})
+				body: JSON.stringify({ search: query })
 			})
 
 			if (!response.ok) {
-				throw Error (response.statusText)
+				throw Error(response.statusText)
 			}
 
 			const parsedResponse = await response.json()
@@ -50,7 +51,7 @@ class IngredientsSearchContainer extends Component {
 		console.log(`addIngredient was called ing_id is ${ing_id}, e is ${e}, user_id is ${this.props.user.user_id}`);
 		try {
 			console.log(ing_id);
-			const response = await fetch ('http://localhost:8000/api/v1/pantry_items', {
+			const response = await fetch('http://localhost:8000/api/v1/pantry_items', {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
@@ -65,7 +66,7 @@ class IngredientsSearchContainer extends Component {
 
 
 			if (!response.ok) {
-				throw Error (response.statusText)
+				throw Error(response.statusText)
 			}
 
 			const parsedResponse = await response.json()
@@ -78,11 +79,12 @@ class IngredientsSearchContainer extends Component {
 
 
 	render() {
+		console.log(this.props)
 		return (
 			<div>
 				<h1>ingredients search container</h1>
 				<IngredientsSearch searchIngredients={this.searchIngredients} />
-				{this.state.ing_name ? <IngredientsResults results={this.state} addIngredient={this.addIngredient}/> : null}
+				{this.state.ing_name ? <IngredientsResults results={this.state} addIngredient={this.addIngredient} /> : null}
 			</div>
 
 
