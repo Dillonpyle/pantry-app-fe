@@ -49,18 +49,20 @@ class IngredientsSearchContainer extends Component {
 		e.preventDefault()
 		console.log(`addIngredient was called ing_id is ${ing_id}, e is ${e}, user_id is ${this.props.user.user_id}`);
 		try {
+			console.log(ing_id);
 			const response = await fetch ('http://localhost:8000/api/v1/pantry_items', {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
 				},
 				credentials: "include",
-				// body: JSON.stringify(this.state)
+				// body: JSON.stringify({ingredient_id: 1})
 				body: JSON.stringify({
-					ingredient_id: Number(ing_id),
-					user_id: Number(this.props.user.user_id)
+					ingredient_id: ing_id,
+					user_id: this.props.user.user_id
 				})
 			})
+
 
 			if (!response.ok) {
 				throw Error (response.statusText)
