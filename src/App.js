@@ -8,12 +8,12 @@ import './App.css';
 class App extends Component {
 
   state = {
-    id: '',
+    user_id: '',
     username: ''
   }
 
-
-  async componentDidMount() {
+  componentDidMount() {
+    console.log('welcome to my friggen app');
   }
 
   handleRegister = async (data) => {
@@ -77,10 +77,11 @@ class App extends Component {
       <main>
         <Switch>
           <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
-          <Route exact path='/IngredientsSearchContainer' render={() => <IngredientsSearchContainer />} />
+          <Route exact path='/IngredientsSearchContainer' render={() => <IngredientsSearchContainer user={this.state}/>} />
           <Route exact path='/home' render={() => <Home />} />
         </Switch>
       </main>
+
     );
   }
 }

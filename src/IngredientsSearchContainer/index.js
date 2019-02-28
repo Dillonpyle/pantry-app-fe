@@ -45,9 +45,35 @@ class IngredientsSearchContainer extends Component {
 		}
 	}
 
-	addIngredient = (ing_id, e) => {
+	addIngredient = async (ing_id, e) => {
 		e.preventDefault()
-		console.log(`addIngredient was called ing_id is ${ing_id}, e is ${e}`);
+		console.log(`addIngredient was called ing_id is ${ing_id}, e is ${e}, user_id is ${this.props.user.user_id}`);
+		try {
+			console.log(ing_id);
+			const response = await fetch ('http://localhost:8000/api/v1/pantry_items', {
+				method: 'POST',
+				headers: {
+					"Content-Type": "application/json"
+				},
+				credentials: "include",
+				// body: JSON.stringify({ingredient_id: 1})
+				body: JSON.stringify({
+					ingredient_id: ing_id,
+					user_id: this.props.user.user_id
+				})
+			})
+
+
+			if (!response.ok) {
+				throw Error (response.statusText)
+			}
+
+			const parsedResponse = await response.json()
+			console.log(parsedResponse);
+
+		} catch (err) {
+			console.log(err)
+		}
 	}
 
 
