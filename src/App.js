@@ -89,7 +89,7 @@ class App extends Component {
           username: parsedResponse.username
         });
         this.props.history.push('/home')
-        this.props.history.push('/ingredients')
+        // this.props.history.push('/ingredients')
       }
 
       console.log(this.state, "this is state")
