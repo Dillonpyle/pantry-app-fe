@@ -3,7 +3,16 @@ import IngredientsSearchContainer from './IngredientsSearchContainer'
 import './App.css';
 
 class App extends Component {
-  async componentDidMount() {
+  constructor () {
+    super()
+
+    this.state = {
+      user_id: 1,
+    }
+  }
+
+  componentDidMount() {
+    console.log('welcome to my friggen app');
   }
 
   handleRegister = async (data) => {
@@ -65,7 +74,7 @@ class App extends Component {
             </label>
             <input type='Submit' />
           </form>
-        <IngredientsSearchContainer />
+        <IngredientsSearchContainer user={this.state}/>
 
       </div>
     );
