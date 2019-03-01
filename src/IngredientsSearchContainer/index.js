@@ -19,7 +19,7 @@ class IngredientsSearchContainer extends Component {
 		console.log(`search Ingredients being called with query:${query} and e:${e}`);
 
 		try {
-			const response = await fetch('http://localhost:8000/api/v1/ingredients/search', {
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/ingredients/search`, {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"
@@ -53,7 +53,7 @@ class IngredientsSearchContainer extends Component {
 		try {
 			console.log(ing_id);
 
-			const response = await fetch('http://localhost:8000/api/v1/pantry_items', {
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/pantry_items`, {
 				method: 'POST',
 				headers: {
 					"Content-Type": "application/json"

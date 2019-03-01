@@ -6,9 +6,10 @@ import Recipes from './Recipes/Form'
 import Navagation from './Navagation';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
+require('dotenv').config()
 
 
-const API_KEY = "5ca1788bd22d390ed0b376c833f6c8b0"
+
 
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
     const recipeName = e.target.elements.recipeName.value
     e.preventDefault();
 
-    const api_call = await fetch(`https://www.food2fork.com/api/search?key=${API_KEY}&q=${recipeName}&page=2`)
+    const api_call = await fetch(`https://www.food2fork.com/api/search?key=${process.env.API_KEY}&q=${recipeName}&page=2`)
     console.log(recipeName)
 
     const data = await api_call.json();
@@ -38,7 +39,7 @@ class App extends Component {
 
   handleRegister = async (data) => {
     try {
-      const registerResponse = await fetch('http://localhost:8000/api/v1/users', {
+      const registerResponse = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
         method: 'POST',
         body: JSON.stringify(data),
         credentials: 'include',
@@ -67,7 +68,7 @@ class App extends Component {
     e.preventDefault();
 
     try {
-      const loginResponse = await fetch('http://localhost:8000/api/v1/users', {
+      const loginResponse = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(this.state),
