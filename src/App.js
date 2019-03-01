@@ -37,6 +37,7 @@ class App extends Component {
     console.log('welcome to my friggen app');
   }
 
+
   handleRegister = async (data) => {
     try {
       const registerResponse = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
@@ -105,6 +106,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <main>
+          <h1>PantryPal</h1>
+          <h2>Keep track of your pantry</h2>
           <Switch>
             <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
             <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state.username} user_id={this.state.user_id} />} />
