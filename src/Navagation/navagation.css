@@ -1,0 +1,19 @@
+#navbar{
+    background: gray;
+    text-decoration: none;
+    height: 100%;
+    padding-top: 10px;
+}
+#homeLink{
+    padding-left: 20px;
+    font-size: 32px;
+}
+a:-webkit-any-link{
+    text-decoration: none;
+}
+
+#logout{
+    float: right;
+    padding-right: 20px;
+    font-size: 32px;
+}
