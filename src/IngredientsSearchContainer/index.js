@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import IngredientsSearch from '../IngredientsSearch'
 import IngredientsResults from '../IngredientsResults'
-
+import IngredientAdd from '../IngredientAdd'
 
 class IngredientsSearchContainer extends Component {
 	constructor() {
@@ -87,6 +87,7 @@ class IngredientsSearchContainer extends Component {
 				<h1>ingredients search container</h1>
 				<IngredientsSearch searchIngredients={this.searchIngredients} />
 				{this.state.ing_name ? <IngredientsResults results={this.state} addIngredient={this.addIngredient} /> : null}
+				<IngredientAdd />
 			</div>
 
 
