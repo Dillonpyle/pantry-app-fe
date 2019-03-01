@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IngredientsSearchContainer from './IngredientsSearchContainer';
 import Home from './Home';
-import Register from './Register';
+import Register from './register';
 import Recipes from './Recipes/Form'
 import Navagation from './Navagation';
 import { Route, Switch, withRouter } from 'react-router-dom';
