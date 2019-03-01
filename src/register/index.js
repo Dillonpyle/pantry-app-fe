@@ -14,7 +14,7 @@ const Register = ({ handleRegister, handleSubmit, handleChange }) => {
                     password:
           <input type='text' name='password' onChange={handleChange} />
                 </label>
-                <button type='submit'>Register</button>
+                <button type='submit'>Login</button>
             </form>
             <h1>Sign Up</h1>
             <form onSubmit={handleSubmit}>

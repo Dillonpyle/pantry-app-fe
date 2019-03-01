@@ -36,11 +36,12 @@ class App extends Component {
     console.log('welcome to my friggen app');
   }
 
-  handleRegister = async (data) => {
+  handleRegister = async (e) => {
+    e.preventDefault()
     try {
-      const registerResponse = await fetch('http://localhost:8000/api/v1/users', {
+      const registerResponse = await fetch('http://localhost:8000/api/v1/login', {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(this.state),
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -49,6 +50,14 @@ class App extends Component {
       })
 
       const registerParsed = await registerResponse.json()
+
+      if (registerResponse.ok) {
+        this.setState({
+          user_id: registerParsed.id,
+          username: registerParsed.username
+        });
+        this.props.history.push('/home')
+      }
 
       console.log(registerParsed)
 
@@ -89,7 +98,6 @@ class App extends Component {
           username: parsedResponse.username
         });
         this.props.history.push('/home')
-        this.props.history.push('/ingredients')
       }
 
       console.log(this.state, "this is state")
