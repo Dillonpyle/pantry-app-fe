@@ -48,9 +48,11 @@ class IngredientsSearchContainer extends Component {
 
 	addIngredient = async (ing_id, e) => {
 		e.preventDefault()
-		console.log(`addIngredient was called ing_id is ${ing_id}, e is ${e}, user_id is ${this.props.user.user_id}`);
+		console.log(this.props.user_id);
+		console.log(`addIngredient was called ing_id is ${ing_id}, e is ${e}, user_id is ${this.props.user_id}`);
 		try {
 			console.log(ing_id);
+
 			const response = await fetch('http://localhost:8000/api/v1/pantry_items', {
 				method: 'POST',
 				headers: {
@@ -60,7 +62,7 @@ class IngredientsSearchContainer extends Component {
 				// body: JSON.stringify({ingredient_id: 1})
 				body: JSON.stringify({
 					ingredient_id: ing_id,
-					user_id: this.props.user.user_id
+					user_id: this.props.user_id
 				})
 			})
 
@@ -75,11 +77,11 @@ class IngredientsSearchContainer extends Component {
 		} catch (err) {
 			console.log(err)
 		}
-	}
+	 }
 
 
 	render() {
-		console.log(this.props);
+		console.log(this.props, 'this is props on ing search container');
 		return (
 			<div>
 				<h1>ingredients search container</h1>
