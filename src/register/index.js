@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
+import { Col, Button, Form, FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
+
+import './register.css';
 
 const Register = ({ handleRegister, handleSubmit, handleChange }) => {
 
     return (
         <React.Fragment>
-            <h1>Login Here</h1>
-            <form onSubmit={handleRegister}>
-                <label>
-                    Username:
-          <input type='text' name='username' onChange={handleChange} />
-                </label>
-                <label>
-                    password:
-          <input type='text' name='password' onChange={handleChange} />
-                </label>
-                <button type='submit'>Login</button>
-            </form>
-            <h1>Sign Up Here</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-          <input type='text' name='username' onChange={handleChange} />
-                </label>
-                <label>
-                    password:
-          <input type='text' name='password' onChange={handleChange} />
-                </label>
-                <button type='submit'>Register</button>
-            </form>
+            <div id='registerHeader'>
+                <h1>PantryPal</h1>
+                <h2>Keep track of your pantry</h2>
+            </div>
+            <div id='form'>
+                <h3>Login Here</h3>
+                <Form onSubmit={handleRegister}>
+                    <FormGroup>
+                        <Label>
+                            <Input valid type='text' name='username' placeholder="Username" onChange={handleChange} />
+                        </Label>
+                        <Label>
+                            <Input valid type='text' name='password' placeholder="Password" onChange={handleChange} />
+                        </Label>
+                        <Button type='submit'>Login</Button>
+                    </FormGroup>
+                </Form>
+                <h3>Sign Up Here</h3>
+                <Form onSubmit={handleSubmit}>
+                    <Label>
+                        <Input type='text' name='username' placeholder="Username" onChange={handleChange} />
+                    </Label>
+                    <Label>
+                        <Input type='text' name='password' placeholder="Password" onChange={handleChange} />
+                    </Label>
+                    <Button type='submit'>Register</Button>
+                </Form>
+            </div>
         </React.Fragment>
     )
 }

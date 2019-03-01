@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom'
+import { Navbar, Nav, NavItem, NavLink } from 'reactstrap';
+import './navagation.css'
 
 export class index extends Component {
     render() {
-        return (
-            <nav>
-                <Link to={'/Home'}><button>home</button> </Link>
-                <Link to={'/'}><button>logout</button> </Link>
-            </nav>
+        return (<div id='navbar'>
+
+            <Link to={'/Home'}><NavLink id='homeLink'>home</NavLink> </Link>
+            <Link to={'/'}><NavLink id="logout">logout</NavLink></Link>
+
+        </div>
         )
     }
 }
