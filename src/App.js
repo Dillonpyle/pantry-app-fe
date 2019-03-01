@@ -24,7 +24,7 @@ class App extends Component {
     const recipeName = e.target.elements.recipeName.value
     e.preventDefault();
 
-    const api_call = await fetch(`https://www.food2fork.com/api/search?key=${process.env.API_KEY}&q=${recipeName}&page=2`)
+    const api_call = await fetch(`https://www.food2fork.com/api/search?key=5ca1788bd22d390ed0b376c833f6c8b0&q=${recipeName}&page=2`)
     console.log(recipeName)
 
     const data = await api_call.json();
@@ -38,11 +38,12 @@ class App extends Component {
   }
 
 
-  handleRegister = async (data) => {
+  handleRegister = async (e) => {
+    e.preventDefault()
     try {
-      const registerResponse = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
+      const registerResponse = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(this.state),
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
@@ -51,6 +52,14 @@ class App extends Component {
       })
 
       const registerParsed = await registerResponse.json()
+
+      if (registerResponse.ok) {
+        this.setState({
+          user_id: registerParsed.id,
+          username: registerParsed.username
+        });
+        this.props.history.push('/home')
+      }
 
       console.log(registerParsed)
 
