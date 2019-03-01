@@ -4,7 +4,7 @@ const Register = ({ handleRegister, handleSubmit, handleChange }) => {
 
     return (
         <React.Fragment>
-            <h1>Login</h1>
+            <h1>Login Here</h1>
             <form onSubmit={handleRegister}>
                 <label>
                     Username:
@@ -16,7 +16,7 @@ const Register = ({ handleRegister, handleSubmit, handleChange }) => {
                 </label>
                 <button type='submit'>Register</button>
             </form>
-            <h1>Sign Up</h1>
+            <h1>Sign Up Here</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Username:
