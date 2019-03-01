@@ -93,6 +93,7 @@ class App extends Component {
       }
 
       const parsedResponse = await loginResponse.json();
+      console.log(parsedResponse);
 
       if (loginResponse.ok) {
         this.setState({
@@ -100,7 +101,6 @@ class App extends Component {
           username: parsedResponse.username
         });
         this.props.history.push('/home')
-        // this.props.history.push('/ingredients')
       }
 
       console.log(this.state, "this is state")
@@ -120,7 +120,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
             <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state.username} user_id={this.state.user_id} />} />
-            <Route exact path='/home' render={() => <Home username={this.state.username} />} />
+            <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} />} />
             <Route exact path='/recipes' render={() => <Recipes getRecipe={this.getRecipe} recipes={this.state.recipes} />} />
           </Switch>
         </main>
