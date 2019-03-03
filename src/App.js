@@ -119,7 +119,7 @@ class App extends Component {
             <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
             <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state.username} user_id={this.state.user_id} />} />
             <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} />} />
-            <Route exact path='/recipes' render={() => <Recipes getRecipe={this.getRecipe} recipes={this.state.recipes} />} />
+            <Route exact path='/recipes' render={() => <Recipes getRecipe={this.getRecipe} recipes={this.state.recipes} user={this.state} />} />
           </Switch>
         </main>
         <footer>

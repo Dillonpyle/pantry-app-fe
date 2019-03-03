@@ -3,6 +3,7 @@ import RecipeAdd from '../RecipeAdd'
 
 const Form = props => (
     <React.Fragment>
+        <RecipeAdd user={props}/>
         <h2>Search for a recipe online!</h2>
         <form onSubmit={props.getRecipe} >
             <input type="text" name="recipeName" placeholder="Search..." />
@@ -19,7 +20,7 @@ const Form = props => (
                 </div>)
             })}
         </div>
-        <RecipeAdd />
+        
     </React.Fragment>
 )
 
