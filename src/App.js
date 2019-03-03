@@ -5,6 +5,7 @@ import Register from './register';
 import Recipes from './Recipes/Form'
 import Navagation from './Navagation';
 import { Route, Switch, withRouter } from 'react-router-dom';
+// import img from './pantry1.jpeg'
 import './App.css';
 require('dotenv').config()
 
@@ -17,6 +18,7 @@ class App extends Component {
   state = {
     user_id: '',
     username: '',
+    ing_list: [],
     recipes: []
   }
 
@@ -35,6 +37,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log('welcome to my friggen app');
+
   }
 
 
@@ -58,10 +61,11 @@ class App extends Component {
           user_id: registerParsed.id,
           username: registerParsed.username
         });
+        this.listIngredients();
         this.props.history.push('/home')
       }
 
-      console.log(registerParsed)
+
 
     } catch (err) {
       console.log(err)
@@ -93,13 +97,15 @@ class App extends Component {
       }
 
       const parsedResponse = await loginResponse.json();
-      console.log(parsedResponse);
+      console.log(parsedResponse, 'this is logins response')
+
 
       if (loginResponse.ok) {
         this.setState({
           user_id: parsedResponse.id,
           username: parsedResponse.username
         });
+
         this.props.history.push('/home')
       }
 
@@ -110,15 +116,46 @@ class App extends Component {
       console.log(err)
     }
   }
+
+  listIngredients = async () => {
+
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/pantry`, {
+        method: 'POST',
+        credentials: "include",
+        body: JSON.stringify({ user_id: this.state.user_id }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+
+      const ingredientsList = await response.json()
+      console.log(ingredientsList, 'from list ingredient, this is what im setting state to');
+
+      this.setState({
+        ing_list: ingredientsList.ingredients
+      })
+      console.log(this.state, 'this is state from listIngerdients');
+    } catch (err) {
+      console.log(err, 'from listIngredients')
+    }
+  }
+
+
+
   render() {
     console.log(this.state);
     return (
       <React.Fragment>
         <main>
           <Switch>
-            <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />} />
+            <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />} />
             <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state.username} user_id={this.state.user_id} />} />
-            <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} />} />
+            <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} ing_list={this.state.ing_list} />} />
             <Route exact path='/recipes' render={() => <Recipes getRecipe={this.getRecipe} recipes={this.state.recipes} />} />
           </Switch>
         </main>

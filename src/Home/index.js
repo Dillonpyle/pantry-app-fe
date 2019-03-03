@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
-import img from './pantry1.jpeg'
+import IngredientsIndex from '../IngredientsIndex';
 import './home.css'
 
 
 
-const index = ({ username }) => {
+const index = ({ username, ing_list }) => {
+
+
     return (
         <div id='homeBody'>
             <h1 id='homeHeader'>{username}'s Pantry</h1>
             <div id='homePageButtons'>
-                <Link to={'/ingredients'}><Button outline color="primary">Ingredients</Button> </Link>
-                <Button outline color="primary"><Link to={'/recipes'}> Recipe </Link></Button>
-                <Button outline color="primary">Add Recipe</Button>
+                <button ><Link to={'/ingredients'}>Ingredients</Link></button>
+                <button ><Link to={'/recipes'}> Recipe </Link></button>
+                <button >Add Recipe</button>
             </div>
-            <img id='homeImg' src={img} />
+            <IngredientsIndex ing_list={ing_list} />
         </div>
     )
 }

@@ -8,3 +8,9 @@ footer{
   bottom:0;
   right:0;
 }
+#homeImg {
+  height: 30%;
+  width: 45%;
+  border: 2px solid #000;
+  border-radius: 230px / 150px;
+}

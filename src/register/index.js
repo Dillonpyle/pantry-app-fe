@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Col, Button, Form, FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
 
 import './register.css';
 
-const Register = ({ handleRegister, handleSubmit, handleChange }) => {
+const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) => {
 
     return (
         <React.Fragment>
@@ -21,7 +22,7 @@ const Register = ({ handleRegister, handleSubmit, handleChange }) => {
                         <Label>
                             <Input valid type='text' name='password' placeholder="Password" onChange={handleChange} />
                         </Label>
-                        <Button type='submit'>Login</Button>
+                        <button type='submit' onClick={handleClick}> Login </button>
                     </FormGroup>
                 </Form>
                 <h3>Sign Up Here</h3>
@@ -39,4 +40,4 @@ const Register = ({ handleRegister, handleSubmit, handleChange }) => {
     )
 }
 
-export default Register;
+export default withRouter(Register);
