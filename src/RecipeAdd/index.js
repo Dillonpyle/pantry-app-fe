@@ -12,7 +12,9 @@ class RecipeAdd extends Component{
 			ingredients_search: '',
 			ing_id: '',
 			ing_name: '',
-			ing_type: ''
+			ing_type: '',
+			recipe_id: '',
+			message: ''
 		}
 	}
 
@@ -49,6 +51,13 @@ class RecipeAdd extends Component{
 
 			const parsedResponse = await response.json()
 			console.log(parsedResponse)
+
+			if(parsedResponse) {
+				this.setState({
+					message: `${parsedResponse.title} Added!`
+				})
+			}
+
 
 		} catch (err) {
 			console.log(err)
@@ -87,9 +96,12 @@ class RecipeAdd extends Component{
 		}
 	}
 
+	// adding ingredients to created recipe
+	// just called add ingredients because reused component from ingredients component
 	addIngredient = (e) => {
 		e.preventDefault()
 		console.log("add ingredient was called");
+
 	}
 
 	render () {
@@ -97,12 +109,13 @@ class RecipeAdd extends Component{
 		return(
 			<div>
 				<h2>Add your own Recipe!</h2>
-				<form onSubmit={this.createRecipe}>
+				<form onSubmit={this.createRecipe} id="create-recipe">
 					<input name="title" placeholder="Recipe title..." value={this.state.title} onChange={this.handleChange}/>
-					<input name="description" placeholder="Recipe description..." value={this.state.description} onChange={this.handleChange}/>
 					<input name="image_url" placeholder="Recipe image_url..." value={this.state.image_url} onChange={this.handleChange}/>
 					<button type="submit">Create Recipe</button>
 				</form>
+				<textarea form="create-recipe" name="description" placeholder="Recipe description..." value={this.state.description} onChange={this.handleChange}></textarea>
+				{this.state.message ? <h4>{this.state.message}</h4> : null}
 				<h3>Add ingredients to your recipe</h3>
 				<h4>Can't find your ingredient?  Add it to our database from the ingredients page</h4>
 				<form onSubmit={this.searchIngredients}>
