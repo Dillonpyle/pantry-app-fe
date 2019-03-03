@@ -1,10 +1,12 @@
 import React from 'react';
-
+import RecipeAdd from '../RecipeAdd'
 
 const Form = props => (
     <React.Fragment>
+        <RecipeAdd user={props}/>
+        <h2>Search for a recipe online!</h2>
         <form onSubmit={props.getRecipe} >
-            <input type="text" name="recipeName" />
+            <input type="text" name="recipeName" placeholder="Search..." />
             <button>search</button>
         </form>
         <div>
@@ -18,6 +20,7 @@ const Form = props => (
                 </div>)
             })}
         </div>
+        
     </React.Fragment>
 )
 
