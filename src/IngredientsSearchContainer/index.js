@@ -1,18 +1,21 @@
-import React, { Component } from 'react'
-import IngredientsSearch from '../IngredientsSearch'
-import IngredientsResults from '../IngredientsResults'
-import IngredientAdd from '../IngredientAdd'
+import React, { Component } from 'react';
+import IngredientsSearch from '../IngredientsSearch';
+import IngredientsResults from '../IngredientsResults';
+import IngredientAdd from '../IngredientAdd';
+import IngredientsIndex from '../IngredientsIndex';
 
 class IngredientsSearchContainer extends Component {
+
 	constructor() {
 		super()
 
 		this.state = {
 			ing_id: '',
 			ing_name: '',
-			ing_type: '',
+			ing_type: ''
 		}
 	}
+
 
 	searchIngredients = async (query, e) => {
 		e.preventDefault()
@@ -77,7 +80,8 @@ class IngredientsSearchContainer extends Component {
 		} catch (err) {
 			console.log(err)
 		}
-	 }
+	}
+
 
 
 	render() {
