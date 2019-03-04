@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import RecipeSearchResults from '../RecipeSearchResults'
 
+
 class RecipeSearch extends Component {
 	constructor () {
 		super()
@@ -8,7 +9,8 @@ class RecipeSearch extends Component {
 		this.state = {
 			query: '',
 			results: [],
-			showResults: false
+			showResults: false,
+			recipe_id: ''
 		}
 	}
 
@@ -54,9 +56,14 @@ class RecipeSearch extends Component {
 
 	}
 
+
+
+
+
 	render () {
 		return (
 			<div>
+				<h3>Search user created recipe</h3>
 				<form onSubmit={this.searchRecipes}>
 					<input name="query" placeholder="Search..." value={this.state.query} onChange={this.handleChange}/>
 					<button type="search">Search</button>

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import IngredientsResults from '../IngredientsResults'
 import AddIngredientToRecipe from '../AddIngredientToRecipe'
 import IngredientSearchInRecipe from '../IngredientSearchInRecipe'
+import RecipeSearch from '../RecipeSearch'
+
 
 class RecipeAdd extends Component{
 	constructor () {
@@ -129,13 +131,14 @@ class RecipeAdd extends Component{
 
 			if (parsedResponse) {
 				this.setState({
-					message: "Ingredient Added!"
+					message: 'Ingredient Added'
 				})
 			}
 
 		} catch (err) {
 			console.log(err)
 		}
+
 
 
 	}
@@ -152,11 +155,10 @@ class RecipeAdd extends Component{
 				</form>
 				<textarea form="create-recipe" name="description" placeholder="Recipe description..." value={this.state.description} onChange={this.handleChange}></textarea>
 				{this.state.message ? <h4>{this.state.message}</h4> : null}
-
-				{this.state.recipe_id ? <IngredientSearchInRecipe handleChange={this.handleChange} searchIngredients={this.searchIngredients} ingredients_search={this.state.ingredients_search}/> : null}
-
-
+				{this.state.recipe_id ? <IngredientSearchInRecipe searchIngredients={this.searchIngredients} ingredients_search={this.state.ingredients_search} handleChange={this.handleChange}/>: null}
 				{this.state.ing_name ? <AddIngredientToRecipe results={this.state} addIngredient={this.addIngredient}/> : null}
+				<RecipeSearch />
+
 			</div>
 
 		)

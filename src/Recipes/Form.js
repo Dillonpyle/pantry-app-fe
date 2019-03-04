@@ -1,14 +1,11 @@
 import React from 'react';
 import RecipeAdd from '../RecipeAdd'
-import RecipeSearch from '../RecipeSearch'
 
 
 const Form = props => (
     <React.Fragment>
-        <RecipeAdd user={props}/><br/>
-        <h2>Search user created Recipes</h2>
-        <RecipeSearch user={props.user}/>
-        <h2>Or Search for a recipe online!</h2>
+        <RecipeAdd user={props}/>
+        <h3>Search for a recipe online!</h3>
         <form onSubmit={props.getRecipe} >
             <input type="text" name="recipeName" placeholder="Search..." />
             <button>search</button>
