@@ -7,10 +7,11 @@ const ingredientsIndex = props => {
     let ingList = props.ing_list.map((ingredient) => {
         return (
 
-            <Col key={ingredient.id} className='ingredient' lg='4'> {ingredient.name}</Col>
+            <Col key={ingredient.id} className='ingredient' lg='4'> {ingredient.name}  </Col>
 
         )
     })
+
 
     return (
         <Container id='ingredientMainDiv'>

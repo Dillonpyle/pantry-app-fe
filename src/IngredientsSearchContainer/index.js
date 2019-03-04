@@ -3,6 +3,7 @@ import IngredientsSearch from '../IngredientsSearch';
 import IngredientsResults from '../IngredientsResults';
 import IngredientAdd from '../IngredientAdd';
 import IngredientsIndex from '../IngredientsIndex';
+import './IngredientsSearchContainer.css'
 
 class IngredientsSearchContainer extends Component {
 
@@ -88,7 +89,7 @@ class IngredientsSearchContainer extends Component {
 		console.log(this.props, 'this is props on ing search container');
 		return (
 			<div>
-				<h1>Manage Your Pantry</h1>
+				<h1 id='searchContainerHeader'>Manage Your Pantry</h1>
 				<IngredientsSearch searchIngredients={this.searchIngredients} />
 				{this.state.ing_name ? <IngredientsResults results={this.state} addIngredient={this.addIngredient} /> : null}
 				<IngredientAdd />

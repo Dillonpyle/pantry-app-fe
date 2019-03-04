@@ -5,7 +5,6 @@ import Register from './register';
 import Recipes from './Recipes/Form'
 import Navagation from './Navagation';
 import { Route, Switch, withRouter } from 'react-router-dom';
-// import img from './pantry1.jpeg'
 import './App.css';
 require('dotenv').config()
 
@@ -149,7 +148,6 @@ class App extends Component {
     e.preventDefault()
     console.log("deleteIngredient was called");
   }
-
 
 
   render() {
