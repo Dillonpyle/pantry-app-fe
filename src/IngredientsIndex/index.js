@@ -2,15 +2,18 @@ import React from 'react'
 import './ingredientsIndex.css'
 import { Container, Row, Col } from 'reactstrap';
 
-const ingredientsIndex = ing_list => {
-    console.log(ing_list, 'from ingredientsindex')
+const ingredientsIndex = ({ ing_list }) => {
+
+
+    console.log(ing_list.ing_list, 'from ingredientsindex')
     let ingList = ing_list.ing_list.map((ingredient) => {
         return (
 
-            <Col key={ingredient.id} className='ingredient' lg='4'> {ingredient.name}</Col>
+            <Col key={ingredient.id} className='ingredient' lg='4'> {ingredient.name}  </Col>
 
         )
     })
+
 
     return (
         <Container id='ingredientMainDiv'>

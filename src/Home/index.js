@@ -8,6 +8,8 @@ import './home.css'
 const index = ({ username, ing_list }) => {
 
 
+
+
     return (
         <div id='homeBody'>
             <h1 id='homeHeader'>{username}'s Pantry</h1>
