@@ -2,7 +2,6 @@ import React from 'react'
 import './IngredientsResults.css'
 
 const IngredientsResults = (props) => {
-	console.log(props);
 	return (
 		<div id="ingredientsResults">
 			<div className="left">

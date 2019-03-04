@@ -32,9 +32,6 @@ class RecipeAdd extends Component{
 
 	createRecipe =  async (e) => {
 		e.preventDefault()
-		console.log('create Recipe was called');
-		console.log(this.state, "= state when createRecipe is called");
-		console.log(this.props.user.user.user_id, "= id of user creating recipe");
 		try {
 			const response = await fetch(`${process.env.REACT_APP_API_URL}/recipes`, {
 				method: 'POST',
@@ -56,7 +53,6 @@ class RecipeAdd extends Component{
 			}
 
 			const parsedResponse = await response.json()
-			console.log(parsedResponse)
 
 			if(parsedResponse) {
 				this.setState({
@@ -65,9 +61,6 @@ class RecipeAdd extends Component{
 				})
 			}
 
-			console.log(this.state);
-
-
 		} catch (err) {
 			console.log(err)
 		}
@@ -75,7 +68,6 @@ class RecipeAdd extends Component{
 
 	searchIngredients = async (e) => {
 		e.preventDefault()
-		console.log(`search Ingredients being called with query:${this.state.ingredients_search} and e:${e}`);
 
 		try {
 			const response = await fetch(`${process.env.REACT_APP_API_URL}/ingredients/search`, {
@@ -92,14 +84,12 @@ class RecipeAdd extends Component{
 			}
 
 			const parsedResponse = await response.json()
-			console.log(parsedResponse);
 
 			this.setState({
 				ing_id: parsedResponse.id,
 				ing_name: parsedResponse.name,
 				ing_type: parsedResponse.typeof,
 			})
-			console.log(this.state);
 
 		} catch (err) {
 			console.log(err)
@@ -110,7 +100,7 @@ class RecipeAdd extends Component{
 	// just called add ingredients because reused component from ingredients component
 	addIngredient = async (amt, unit, e) => {
 		e.preventDefault()
-		console.log(`add ingredient was called.  This is amount ${amt}. This is unit ${unit}`);
+		// console.log(`add ingredient was called.  This is amount ${amt}. This is unit ${unit}`);
 		try {
 			const response = await fetch(`${process.env.REACT_APP_API_URL}/recipe_ingredient/${this.state.recipe_id}/${this.state.ing_id}`, {
 					method: 'POST',
@@ -145,7 +135,6 @@ class RecipeAdd extends Component{
 	se
 
 	render () {
-		// console.log(this.props);
 		return(
 			<div className="center">
 				<h2>Add your own Recipe!</h2>

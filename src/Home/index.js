@@ -4,11 +4,8 @@ import IngredientsIndex from '../IngredientsIndex';
 import './home.css'
 
 
-
+// Links to other pages and displays ingredients index
 const index = ({ username, ing_list, deleteIngredient}) => {
-
-
-
 
     return (
         <div id='homeBody'>

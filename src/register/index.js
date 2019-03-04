@@ -5,6 +5,7 @@ import img from './pantry1.jpeg'
 
 import './register.css';
 
+// REGISTER AND LOGIN FORMS == methods with fetch calls on app.js
 const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) => {
 
     return (

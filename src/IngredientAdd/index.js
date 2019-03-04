@@ -11,6 +11,7 @@ class IngredientAdd extends Component {
 		}
 	}
 
+	// Adds ingredient to database, not to pantry
 	addIngredient = async (e) => {
 		e.preventDefault()
 		console.log('hitting addIngredinet')

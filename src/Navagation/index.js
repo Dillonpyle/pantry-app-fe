@@ -6,15 +6,9 @@ import './navagation.css'
 export class index extends Component {
     render() {
         return (
-
-
-
-
             <div id='navbar'>
-
                 <Link to={'/Home'} id='homeLink'>Home </Link>
                 <Link to={'/'} id="logout">Logout</Link>
-
             </div>
         )
     }

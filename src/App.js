@@ -8,10 +8,6 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 require('dotenv').config()
 
-
-
-
-
 class App extends Component {
 
   state = {
@@ -26,17 +22,15 @@ class App extends Component {
     e.preventDefault();
 
     const api_call = await fetch(`https://www.food2fork.com/api/search?key=5ca1788bd22d390ed0b376c833f6c8b0&q=${recipeName}&page=2`)
-    console.log(recipeName)
 
     const data = await api_call.json();
     this.setState({ recipes: data.recipes });
 
-    console.log(this.state.recipes)
   }
 
+  // a friendly greeting
   componentDidMount() {
     console.log('welcome to my friggen app');
-
   }
 
 
@@ -96,7 +90,6 @@ class App extends Component {
       }
 
       const parsedResponse = await loginResponse.json();
-      console.log(parsedResponse, 'this is logins response')
 
 
       if (loginResponse.ok) {
@@ -107,9 +100,6 @@ class App extends Component {
 
         this.props.history.push('/home')
       }
-
-      console.log(this.state, "this is state")
-      console.log(parsedResponse, "this is parsedResponse")
 
     } catch (err) {
       console.log(err)
@@ -133,12 +123,10 @@ class App extends Component {
       }
 
       const ingredientsList = await response.json()
-      console.log(ingredientsList, 'from list ingredient, this is what im setting state to');
 
       this.setState({
         ing_list: ingredientsList
       })
-      console.log(this.state, 'this is state from listIngerdients');
     } catch (err) {
       console.log(err, 'from listIngredients')
     }
@@ -146,7 +134,7 @@ class App extends Component {
 
   deleteIngredient = async (e) => {
     e.preventDefault()
-    console.log("deleteIngredient was called");
+    // console.log("deleteIngredient was called");
   }
 
 
