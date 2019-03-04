@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import RecipeSearchResults from '../RecipeSearchResults'
+import '../App.css';
 
 
 class RecipeSearch extends Component {
@@ -59,7 +60,7 @@ class RecipeSearch extends Component {
 
 	render () {
 		return (
-			<div>
+			<div className="center">
 				<h3>Search user created recipe</h3>
 				<form onSubmit={this.searchRecipes}>
 					<input name="query" placeholder="Search..." value={this.state.query} onChange={this.handleChange}/>

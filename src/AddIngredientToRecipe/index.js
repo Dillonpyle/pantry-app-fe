@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../App.css'
 
 class AddIngredientToRecipe extends Component {
 	constructor () {
@@ -19,7 +20,7 @@ class AddIngredientToRecipe extends Component {
 	render () {
 		console.log(this.props);
 		return (
-			<div>
+			<div className="center">
 				<div className="left">
 					{this.props.results.ing_name}: {this.props.results.ing_type}
 				</div>

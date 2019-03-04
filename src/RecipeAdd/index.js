@@ -4,6 +4,7 @@ import AddIngredientToRecipe from '../AddIngredientToRecipe'
 import IngredientSearchInRecipe from '../IngredientSearchInRecipe'
 import RecipeSearch from '../RecipeSearch'
 import './recipeAdd.css'
+import '../App.css'
 
 
 class RecipeAdd extends Component{
@@ -146,14 +147,16 @@ class RecipeAdd extends Component{
 	render () {
 		// console.log(this.props);
 		return(
-			<div className="main-container">
+			<div className="center">
 				<h2>Add your own Recipe!</h2>
-				<form onSubmit={this.createRecipe} id="create-recipe">
-					<input name="title" placeholder="Recipe title..." value={this.state.title} onChange={this.handleChange}/>
-					<input name="image_url" placeholder="Recipe image_url..." value={this.state.image_url} onChange={this.handleChange}/>
+				<form onSubmit={this.createRecipe} id="create-recipe" className="center">
+					<div>
+						<input name="title" placeholder="Recipe title..." value={this.state.title} onChange={this.handleChange}/>
+						<input name="image_url" placeholder="Recipe image_url..." value={this.state.image_url} onChange={this.handleChange}/>
+					</div>
+					<textarea form="create-recipe" name="description" placeholder="Recipe description..." value={this.state.description} onChange={this.handleChange}></textarea>
 					<button type="submit">Create Recipe</button>
 				</form>
-				<textarea form="create-recipe" name="description" placeholder="Recipe description..." value={this.state.description} onChange={this.handleChange}></textarea>
 				{this.state.message ? <h4>{this.state.message}</h4> : null}
 				{this.state.recipe_id ? <IngredientSearchInRecipe searchIngredients={this.searchIngredients} ingredients_search={this.state.ingredients_search} handleChange={this.handleChange}/>: null}
 				{this.state.ing_name ? <AddIngredientToRecipe results={this.state} addIngredient={this.addIngredient}/> : null}

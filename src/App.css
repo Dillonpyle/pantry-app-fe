@@ -1,6 +1,7 @@
 main{
   min-height: calc(100vh - 60px);
   background-color: #D6CFBB;
+  margin-bottom: 10px;
 }
 footer{
   height: 60px;
@@ -8,4 +9,10 @@ footer{
   left:0;
   bottom:0;
   right:0;
+}
+
+.center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

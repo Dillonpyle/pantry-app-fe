@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../App.css';
 
 class RecipeShow extends Component {
 	constructor () {
@@ -12,7 +13,7 @@ class RecipeShow extends Component {
 	render () {
 		console.log(this.props);
 		return (
-			<div>
+			<div className="center">
 				hi
 			</div>
 		)
