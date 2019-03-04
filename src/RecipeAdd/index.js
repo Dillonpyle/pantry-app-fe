@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import IngredientsResults from '../IngredientsResults'
+import AddIngredientToRecipe from '../AddIngredientToRecipe'
 
 class RecipeAdd extends Component{
 	constructor () {
@@ -54,9 +55,12 @@ class RecipeAdd extends Component{
 
 			if(parsedResponse) {
 				this.setState({
+					recipe_id: parsedResponse.id,
 					message: `${parsedResponse.title} Added!`
 				})
 			}
+
+			console.log(this.state);
 
 
 		} catch (err) {
@@ -90,6 +94,7 @@ class RecipeAdd extends Component{
 				ing_name: parsedResponse.name,
 				ing_type: parsedResponse.typeof,
 			})
+			console.log(this.state);
 
 		} catch (err) {
 			console.log(err)
@@ -98,14 +103,53 @@ class RecipeAdd extends Component{
 
 	// adding ingredients to created recipe
 	// just called add ingredients because reused component from ingredients component
-	addIngredient = (e) => {
+	addIngredient = async (amt, unit, e) => {
 		e.preventDefault()
-		console.log("add ingredient was called");
+		console.log(`add ingredient was called.  This is amount ${amt}. This is unit ${unit}`);
+		try {
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/recipe_ingredient/${this.state.recipe_id}/${this.state.ing_id}`, {
+					method: 'POST',
+					headers: {
+						"Content-Type": "application/json"
+					},
+					credentials: "include",
+					body: JSON.stringify({
+						amount: amt,
+						unit: unit
+					})
+			})
+
+			if (!response.ok) {
+				throw Error(response.statusText)
+			}
+
+			const parsedResponse = await response.json()
+			console.log(parsedResponse);
+
+		} catch (err) {
+			console.log(err)
+		}
+
+			// '/recipe_ingredient/<int:r_id>/<int:i_id>'
+			// 'POST'
+			// body vvv
+			// 	'amount',
+			// 	required = True,
+			// 	help = "no user_id provided",
+			// 	location = ['form', 'json']
+			// 	)
+			// self.reqparse.add_argument(
+			// 	'unit',
+			// 	required = True,
+			// 	help = "no user_id provided",
+			// 	location = ['form', 'json']
+			// 	
+
 
 	}
 
 	render () {
-		console.log(this.props);
+		// console.log(this.props);
 		return(
 			<div>
 				<h2>Add your own Recipe!</h2>
@@ -122,7 +166,7 @@ class RecipeAdd extends Component{
 					<input name="ingredients_search" placeholder="Ingredient..." value={this.state.ingredients_search} onChange={this.handleChange}/>
 					<button>Search Ingredients</button>
 				</form>
-				{this.state.ing_name ? <IngredientsResults results={this.state} addIngredient={this.addIngredient}/> : null}
+				{this.state.ing_name ? <AddIngredientToRecipe results={this.state} addIngredient={this.addIngredient}/> : null}
 			</div>
 
 		)
