@@ -5,7 +5,7 @@ import './home.css'
 
 
 
-const index = ({ username, ing_list }) => {
+const index = ({ username, ing_list, deleteIngredient}) => {
 
 
 
@@ -18,7 +18,7 @@ const index = ({ username, ing_list }) => {
                 <Link to={'/recipes'}>  <button > Recipe</button> </Link>
                 <button >Add Recipe</button>
             </div>
-            <IngredientsIndex ing_list={ing_list} />
+            <IngredientsIndex ing_list={ing_list} deleteIngredient={deleteIngredient}/>
         </div>
     )
 }

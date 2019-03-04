@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import IngredientsResults from '../IngredientsResults'
 import AddIngredientToRecipe from '../AddIngredientToRecipe'
+import IngredientSearchInRecipe from '../IngredientSearchInRecipe'
+import RecipeSearch from '../RecipeSearch'
+
 
 class RecipeAdd extends Component{
 	constructor () {
@@ -126,27 +129,18 @@ class RecipeAdd extends Component{
 			const parsedResponse = await response.json()
 			console.log(parsedResponse);
 
+			if (parsedResponse) {
+				this.setState({
+					message: 'Ingredient Added'
+				})
+			}
+
 		} catch (err) {
 			console.log(err)
 		}
-
-			// '/recipe_ingredient/<int:r_id>/<int:i_id>'
-			// 'POST'
-			// body vvv
-			// 	'amount',
-			// 	required = True,
-			// 	help = "no user_id provided",
-			// 	location = ['form', 'json']
-			// 	)
-			// self.reqparse.add_argument(
-			// 	'unit',
-			// 	required = True,
-			// 	help = "no user_id provided",
-			// 	location = ['form', 'json']
-			// 	
-
-
 	}
+
+	se
 
 	render () {
 		// console.log(this.props);
@@ -160,13 +154,10 @@ class RecipeAdd extends Component{
 				</form>
 				<textarea form="create-recipe" name="description" placeholder="Recipe description..." value={this.state.description} onChange={this.handleChange}></textarea>
 				{this.state.message ? <h4>{this.state.message}</h4> : null}
-				<h3>Add ingredients to your recipe</h3>
-				<h4>Can't find your ingredient?  Add it to our database from the ingredients page</h4>
-				<form onSubmit={this.searchIngredients}>
-					<input name="ingredients_search" placeholder="Ingredient..." value={this.state.ingredients_search} onChange={this.handleChange}/>
-					<button>Search Ingredients</button>
-				</form>
+				{this.state.recipe_id ? <IngredientSearchInRecipe searchIngredients={this.searchIngredients} ingredients_search={this.state.ingredients_search} handleChange={this.handleChange}/>: null}
 				{this.state.ing_name ? <AddIngredientToRecipe results={this.state} addIngredient={this.addIngredient}/> : null}
+				<RecipeSearch />
+
 			</div>
 
 		)
