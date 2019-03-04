@@ -3,6 +3,7 @@ import IngredientsResults from '../IngredientsResults'
 import AddIngredientToRecipe from '../AddIngredientToRecipe'
 import IngredientSearchInRecipe from '../IngredientSearchInRecipe'
 import RecipeSearch from '../RecipeSearch'
+import './recipeAdd.css'
 
 
 class RecipeAdd extends Component{
@@ -145,7 +146,7 @@ class RecipeAdd extends Component{
 	render () {
 		// console.log(this.props);
 		return(
-			<div>
+			<div className="main-container">
 				<h2>Add your own Recipe!</h2>
 				<form onSubmit={this.createRecipe} id="create-recipe">
 					<input name="title" placeholder="Recipe title..." value={this.state.title} onChange={this.handleChange}/>
