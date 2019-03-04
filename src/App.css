@@ -13,4 +13,8 @@ footer{
   width: 45%;
   border: 2px solid #000;
   border-radius: 230px / 150px;
+  
+}
+#homeImgDiv{
+  margin: 0 auto;
 }

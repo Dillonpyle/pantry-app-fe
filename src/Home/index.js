@@ -12,8 +12,8 @@ const index = ({ username, ing_list }) => {
         <div id='homeBody'>
             <h1 id='homeHeader'>{username}'s Pantry</h1>
             <div id='homePageButtons'>
-                <button ><Link to={'/ingredients'}>Ingredients</Link></button>
-                <button ><Link to={'/recipes'}> Recipe </Link></button>
+                <Link to={'/ingredients'}><button >Ingredients</button></Link>
+                <Link to={'/recipes'}>  <button > Recipe</button> </Link>
                 <button >Add Recipe</button>
             </div>
             <IngredientsIndex ing_list={ing_list} />

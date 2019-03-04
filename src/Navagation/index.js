@@ -5,12 +5,17 @@ import './navagation.css'
 
 export class index extends Component {
     render() {
-        return (<div id='navbar'>
+        return (
 
-            <Link to={'/Home'}><NavLink id='homeLink'>home</NavLink> </Link>
-            <Link to={'/'}><NavLink id="logout">logout</NavLink></Link>
 
-        </div>
+
+
+            <div id='navbar'>
+
+                <Link to={'/Home'} id='homeLink'>home </Link>
+                <Link to={'/'} id="logout">logout</Link>
+
+            </div>
         )
     }
 }

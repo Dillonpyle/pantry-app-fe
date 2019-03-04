@@ -8,6 +8,17 @@
     text-align: center;
 }
 
+#homeImg {
+    height: 30%;
+    width: 45%;
+    border: 2px solid #000;
+    border-radius: 230px / 150px;
+    
+  }
+  #homeImgDiv{
+    margin: 0 auto;
+  }
+
 @media(max-width: 500px){
     #form{
         width: 100%;

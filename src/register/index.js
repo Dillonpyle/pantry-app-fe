@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Button, Form, FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
+import img from './pantry1.jpeg'
 
 import './register.css';
 
@@ -35,7 +36,10 @@ const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) =
                     </Label>
                     <Button type='submit'>Register</Button>
                 </Form>
+
+                <img id='homeImg' src={img} />
             </div>
+
         </React.Fragment>
     )
 }

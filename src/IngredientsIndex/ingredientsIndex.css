@@ -1,0 +1,19 @@
+.ingredient{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 28px;
+    color: rgb(238, 236, 236);
+}
+#ingredientMainDiv{
+    width: 75%;
+    height: 70vh;
+    text-align: center;
+    background-color: rgba(29, 28, 28, 0.4);
+    margin: 0 auto;
+    border: 8px solid rgb(141, 101, 28);
+}
+
+@media(min-width: 700px){
+    .ingredient{
+        font-size: 52px;
+    }
+}
