@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './IngredientAdd.css'
 
 class IngredientAdd extends Component {
 	constructor() {
@@ -43,8 +44,8 @@ class IngredientAdd extends Component {
 
 	render() {
 		return (
-			<div>
-				<h2>Add a new ingredient</h2>
+			<div id="IngredientAddContainer">
+				<h2>Add a new ingredient to our database</h2>
 				<form onSubmit={this.addIngredient}>
 					<input name="name" placeholder="Ingredient name..." value={this.state.name} onChange={this.handleChange} />
 					<input name="typeof" placeholder="Ingredient type..." value={this.state.type} onChange={this.handleChange} />
