@@ -138,10 +138,9 @@ class RecipeAdd extends Component{
 		} catch (err) {
 			console.log(err)
 		}
-
-
-
 	}
+
+	se
 
 	render () {
 		// console.log(this.props);

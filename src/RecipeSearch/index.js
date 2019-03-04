@@ -57,9 +57,6 @@ class RecipeSearch extends Component {
 	}
 
 
-
-
-
 	render () {
 		return (
 			<div>

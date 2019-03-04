@@ -145,6 +145,11 @@ class App extends Component {
     }
   }
 
+  deleteIngredient = async (e) => {
+    e.preventDefault()
+    console.log("deleteIngredient was called");
+  }
+
 
 
   render() {
@@ -154,7 +159,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />} />
             <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state.username} user_id={this.state.user_id} />} />
-            <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} ing_list={this.state.ing_list} />} />
+            <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} ing_list={this.state.ing_list} deleteIngredient={this.deleteIngredient}/>} />
             <Route exact path='/recipes' render={() => <Recipes getRecipe={this.getRecipe} recipes={this.state.recipes} user={this.state} />} />
           </Switch>
         </main>
