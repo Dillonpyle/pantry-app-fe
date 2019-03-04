@@ -1,5 +1,6 @@
 main{
   min-height: calc(100vh - 60px);
+  background-color: #D6CFBB;
 }
 footer{
   height: 60px;
@@ -7,14 +8,4 @@ footer{
   left:0;
   bottom:0;
   right:0;
-}
-#homeImg {
-  height: 30%;
-  width: 45%;
-  border: 2px solid #000;
-  border-radius: 230px / 150px;
-  
-}
-#homeImgDiv{
-  margin: 0 auto;
 }

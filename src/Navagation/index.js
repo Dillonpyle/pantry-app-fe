@@ -12,8 +12,8 @@ export class index extends Component {
 
             <div id='navbar'>
 
-                <Link to={'/Home'} id='homeLink'>home </Link>
-                <Link to={'/'} id="logout">logout</Link>
+                <Link to={'/Home'} id='homeLink'>Home </Link>
+                <Link to={'/'} id="logout">Logout</Link>
 
             </div>
         )

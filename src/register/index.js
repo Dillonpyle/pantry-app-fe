@@ -18,10 +18,10 @@ const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) =
                 <Form onSubmit={handleRegister}>
                     <FormGroup>
                         <Label>
-                            <Input valid type='text' name='username' placeholder="Username" onChange={handleChange} />
+                            <Input type='text' name='username' placeholder="Username" onChange={handleChange} />
                         </Label>
                         <Label>
-                            <Input valid type='text' name='password' placeholder="Password" onChange={handleChange} />
+                            <Input type='password' name='password' placeholder="Password" onChange={handleChange} />
                         </Label>
                         <button type='submit' onClick={handleClick}> Login </button>
                     </FormGroup>
@@ -32,14 +32,16 @@ const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) =
                         <Input type='text' name='username' placeholder="Username" onChange={handleChange} />
                     </Label>
                     <Label>
-                        <Input type='text' name='password' placeholder="Password" onChange={handleChange} />
+                        <Input type='password' name='password' placeholder="Password" onChange={handleChange} />
                     </Label>
                     <Button type='submit'>Register</Button>
                 </Form>
 
+
+            </div>
+            <div id="homeImgDiv">
                 <img id='homeImg' src={img} />
             </div>
-
         </React.Fragment>
     )
 }

@@ -5,6 +5,21 @@
 #homePageButtons{
     padding-bottom: 20px;
 }
+#homeHeader{
+    font-family: 'Oxygen', sans-serif;
+    text-transform: capitalize;
+    font-size: 56px;
+    color: rgb(238, 236, 236);
+    text-shadow: 
+        -1px -1px 0px rgb(141, 101, 28),
+         0px -1px 0px rgb(141, 101, 28),
+         1px -1px 0px rgb(141, 101, 28),
+        -1px  0px 0px rgb(141, 101, 28),
+         1px  0px 0px rgb(141, 101, 28),
+        -1px  1px 0px rgb(141, 101, 28),
+         0px  1px 0px rgb(141, 101, 28),
+         1px  1px 0px rgb(141, 101, 28);
+}
 
 button {
     -moz-box-shadow:inset 0px 0px 0px 0px #a6827e;

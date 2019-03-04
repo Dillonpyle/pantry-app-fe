@@ -88,7 +88,7 @@ class IngredientsSearchContainer extends Component {
 		console.log(this.props, 'this is props on ing search container');
 		return (
 			<div>
-				<h1>ingredients search container</h1>
+				<h1>Manage Your Pantry</h1>
 				<IngredientsSearch searchIngredients={this.searchIngredients} />
 				{this.state.ing_name ? <IngredientsResults results={this.state} addIngredient={this.addIngredient} /> : null}
 				<IngredientAdd />
