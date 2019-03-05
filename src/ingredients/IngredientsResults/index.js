@@ -1,13 +1,13 @@
 import React from 'react'
 import './IngredientsResults.css'
 
-const IngredientsResults = (props) => {
+const IngredientsResults = ({ results, addIngredient }) => {
 	return (
 		<div id="ingredientsResults">
 			<div className="left">
-				{props.results.ing_name}: {props.results.ing_type}
+				{results.ing_name}: {results.ing_type}
 			</div>
-			<button className="right" onClick={props.addIngredient.bind(null, props.results.ing_id)}>
+			<button className="right" onClick={addIngredient.bind(null, results.ing_id)}>
 				Add To Your Pantry
 			</button>
 

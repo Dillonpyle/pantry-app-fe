@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import '../App.css';
 
 class RecipeShow extends Component {
-	constructor () {
-		super ()
 
-		this.state = {
-			stuff: ''
-		}
+	state = {
+		stuff: ''
 	}
 
-	render () {
+
+	render() {
 		console.log(this.props);
 		return (
 			<div className="center">

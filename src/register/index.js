@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
-import { Link, withRouter } from 'react-router-dom';
+import React from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { withRouter } from 'react-router-dom';
 import img from './pantry1.jpeg'
 
 import './register.css';
@@ -41,7 +41,7 @@ const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) =
 
             </div>
             <div id="homeImgDiv">
-                <img id='homeImg' src={img} />
+                <img id='homeImg' alt="fruits" src={img} />
             </div>
         </React.Fragment>
     )

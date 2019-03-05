@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 
 class IngredientSearchInRecipe extends Component {
-	constructor () {
-		super()
 
-		this.state = {
-			search: ''
-		}
+	state = {
+		search: ''
 	}
+
 
 	render() {
 		return (
@@ -15,7 +13,7 @@ class IngredientSearchInRecipe extends Component {
 				<h3>Add ingredients to your recipe</h3>
 				<h4>Can't find your ingredient?  Add it to our database from the ingredients page</h4>
 				<form onSubmit={this.props.searchIngredients.bind(null)}>
-					<input name="ingredients_search" placeholder="Ingredient..." value={this.props.ingredients_search} onChange={this.props.handleChange}/>
+					<input name="ingredients_search" placeholder="Ingredient..." value={this.props.ingredients_search} onChange={this.props.handleChange} />
 					<button>Search Ingredients</button>
 				</form>
 			</div>

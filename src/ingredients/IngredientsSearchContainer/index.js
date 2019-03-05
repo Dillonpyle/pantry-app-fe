@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 import IngredientsSearch from '../IngredientsSearch';
 import IngredientsResults from '../IngredientsResults';
 import IngredientAdd from '../IngredientAdd';
-import IngredientsIndex from '../IngredientsIndex';
 import './IngredientsSearchContainer.css'
 
 class IngredientsSearchContainer extends Component {
 
-	constructor() {
-		super()
 
-		this.state = {
-			ing_id: '',
-			ing_name: '',
-			ing_type: ''
-		}
+	state = {
+		ing_id: '',
+		ing_name: '',
+		ing_type: ''
 	}
+
 
 
 	searchIngredients = async (query, e) => {

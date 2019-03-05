@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import IngredientsResults from '../IngredientsResults'
 import AddIngredientToRecipe from '../AddIngredientToRecipe'
 import IngredientSearchInRecipe from '../IngredientSearchInRecipe'
 import RecipeSearch from '../RecipeSearch'
@@ -7,22 +6,20 @@ import './recipeAdd.css'
 import '../App.css'
 
 
-class RecipeAdd extends Component{
-	constructor () {
-		super()
+class RecipeAdd extends Component {
 
-		this.state = {
-			title: '',
-			description: '',
-			image_url: '',
-			ingredients_search: '',
-			ing_id: '',
-			ing_name: '',
-			ing_type: '',
-			recipe_id: '',
-			message: ''
-		}
+	state = {
+		title: '',
+		description: '',
+		image_url: '',
+		ingredients_search: '',
+		ing_id: '',
+		ing_name: '',
+		ing_type: '',
+		recipe_id: '',
+		message: ''
 	}
+
 
 	handleChange = (e) => {
 		this.setState({
@@ -30,7 +27,7 @@ class RecipeAdd extends Component{
 		})
 	}
 
-	createRecipe =  async (e) => {
+	createRecipe = async (e) => {
 		e.preventDefault()
 		try {
 			const response = await fetch(`${process.env.REACT_APP_API_URL}/recipes`, {
@@ -54,7 +51,7 @@ class RecipeAdd extends Component{
 
 			const parsedResponse = await response.json()
 
-			if(parsedResponse) {
+			if (parsedResponse) {
 				this.setState({
 					recipe_id: parsedResponse.id,
 					message: `${parsedResponse.title} Added!`
@@ -103,15 +100,15 @@ class RecipeAdd extends Component{
 		// console.log(`add ingredient was called.  This is amount ${amt}. This is unit ${unit}`);
 		try {
 			const response = await fetch(`${process.env.REACT_APP_API_URL}/recipe_ingredient/${this.state.recipe_id}/${this.state.ing_id}`, {
-					method: 'POST',
-					headers: {
-						"Content-Type": "application/json"
-					},
-					credentials: "include",
-					body: JSON.stringify({
-						amount: amt,
-						unit: unit
-					})
+				method: 'POST',
+				headers: {
+					"Content-Type": "application/json"
+				},
+				credentials: "include",
+				body: JSON.stringify({
+					amount: amt,
+					unit: unit
+				})
 			})
 
 			if (!response.ok) {
@@ -134,21 +131,21 @@ class RecipeAdd extends Component{
 
 	se
 
-	render () {
-		return(
+	render() {
+		return (
 			<div className="center">
 				<h2>Add your own Recipe!</h2>
 				<form onSubmit={this.createRecipe} id="create-recipe" className="center">
 					<div>
-						<input name="title" placeholder="Recipe title..." value={this.state.title} onChange={this.handleChange}/>
-						<input name="image_url" placeholder="Recipe image_url..." value={this.state.image_url} onChange={this.handleChange}/>
+						<input name="title" placeholder="Recipe title..." value={this.state.title} onChange={this.handleChange} />
+						<input name="image_url" placeholder="Recipe image_url..." value={this.state.image_url} onChange={this.handleChange} />
 					</div>
 					<textarea form="create-recipe" name="description" placeholder="Recipe description..." value={this.state.description} onChange={this.handleChange}></textarea>
 					<button type="submit">Create Recipe</button>
 				</form>
 				{this.state.message ? <h4>{this.state.message}</h4> : null}
-				{this.state.recipe_id ? <IngredientSearchInRecipe searchIngredients={this.searchIngredients} ingredients_search={this.state.ingredients_search} handleChange={this.handleChange}/>: null}
-				{this.state.ing_name ? <AddIngredientToRecipe results={this.state} addIngredient={this.addIngredient}/> : null}
+				{this.state.recipe_id ? <IngredientSearchInRecipe searchIngredients={this.searchIngredients} ingredients_search={this.state.ingredients_search} handleChange={this.handleChange} /> : null}
+				{this.state.ing_name ? <AddIngredientToRecipe results={this.state} addIngredient={this.addIngredient} /> : null}
 				<RecipeSearch />
 
 			</div>

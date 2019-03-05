@@ -2,13 +2,10 @@ import React, { Component } from 'react'
 import './IngredientAdd.css'
 
 class IngredientAdd extends Component {
-	constructor() {
-		super()
 
-		this.state = {
-			name: '',
-			typeof: ''
-		}
+	state = {
+		name: '',
+		typeof: ''
 	}
 
 	// Adds ingredient to database, not to pantry

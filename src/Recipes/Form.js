@@ -3,17 +3,17 @@ import RecipeAdd from '../RecipeAdd'
 import './recipe.css'
 
 
-const Form = props => (
+const Form = ({ getRecipe, recipes, user }) => (
     <React.Fragment>
         <div className="main-container">
-            <RecipeAdd user={props}/>
+            <RecipeAdd user={user} />
             <h3>Search for a recipe online!</h3>
-            <form onSubmit={props.getRecipe} >
+            <form onSubmit={getRecipe} >
                 <input type="text" name="recipeName" placeholder="Search..." />
                 <button>search</button>
             </form>
             <div>
-                {props.recipes.map((recipe, i) => {
+                {recipes.map((recipe, i) => {
                     return (<div key={i} >
                         <div >
                             <img src={recipe.image_url} alt={recipe.title} />
@@ -24,7 +24,7 @@ const Form = props => (
                 })}
             </div>
         </div>
-        
+
     </React.Fragment>
 )
 
