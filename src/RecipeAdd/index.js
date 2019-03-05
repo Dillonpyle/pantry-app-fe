@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AddIngredientToRecipe from '../AddIngredientToRecipe'
-import IngredientSearchInRecipe from '../IngredientSearchInRecipe'
+import IngredientSearchInRecipe from '../ingredients/IngredientSearchInRecipe'
 import RecipeSearch from '../RecipeSearch'
 import './recipeAdd.css'
 import '../App.css'

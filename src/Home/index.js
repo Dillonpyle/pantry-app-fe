@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter, Link } from 'react-router-dom';
-import IngredientsIndex from '../IngredientsIndex';
+import IngredientsIndex from '../ingredients/IngredientsIndex';
 import './home.css'
 
 
@@ -11,12 +11,12 @@ const index = ({ username, ing_list, deleteIngredient }) => {
         <div id='homeBody'>
             <h1 id='homeHeader'>{username}'s Pantry</h1>
             <div id='homePageButtons'>
-                <Link to={'/ingredients'}><button >Ingredients</button></Link>
-                <Link to={'/recipes'}>  <button > Recipe</button> </Link>
-                <button >Add Recipe</button>
+                <Link to={'/ingredients'}><button className='homeButtons'>Ingredients</button></Link>
+                <Link to={'/recipes'}>  <button className='homeButtons' > Recipe</button> </Link>
+                <Link to={'/addRecipes'}><button className='homeButtons'>Add Recipe</button> </Link>
             </div>
             <IngredientsIndex ing_list={ing_list} deleteIngredient={deleteIngredient} />
-        </div>
+        </div >
     )
 }
 

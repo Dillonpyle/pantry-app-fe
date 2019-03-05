@@ -4,16 +4,14 @@ import '../App.css';
 
 
 class RecipeSearch extends Component {
-	constructor () {
-		super()
 
-		this.state = {
-			query: '',
-			results: [],
-			showResults: false,
-			recipe_id: ''
-		}
+	state = {
+		query: '',
+		results: [],
+		showResults: false,
+		recipe_id: ''
 	}
+
 
 	handleChange = (e) => {
 		this.setState({
@@ -27,14 +25,14 @@ class RecipeSearch extends Component {
 
 		try {
 			const response = await fetch(`${process.env.REACT_APP_API_URL}/recipe/search`, {
-					method: 'POST',
-					headers: {
-						"Content-Type": "application/json"
-					},
-					credentials: "include",
-					body: JSON.stringify({
-						query: this.state.query
-					})
+				method: 'POST',
+				headers: {
+					"Content-Type": "application/json"
+				},
+				credentials: "include",
+				body: JSON.stringify({
+					query: this.state.query
+				})
 			})
 
 			if (!response.ok) {
@@ -45,7 +43,7 @@ class RecipeSearch extends Component {
 			console.log(parsedResponse);
 
 			if (parsedResponse) {
-				this.setState ({
+				this.setState({
 					showResults: true,
 					results: [...parsedResponse]
 				})
@@ -58,15 +56,15 @@ class RecipeSearch extends Component {
 	}
 
 
-	render () {
+	render() {
 		return (
 			<div className="center">
 				<h3>Search user created recipe</h3>
 				<form onSubmit={this.searchRecipes}>
-					<input name="query" placeholder="Search..." value={this.state.query} onChange={this.handleChange}/>
+					<input name="query" placeholder="Search..." value={this.state.query} onChange={this.handleChange} />
 					<button type="search">Search</button>
 				</form>
-				{this.state.showResults ? <RecipeSearchResults results={this.state.results}/> : null}
+				{this.state.showResults ? <RecipeSearchResults results={this.state.results} /> : null}
 			</div>
 
 		)

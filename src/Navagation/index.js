@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom'
 import './navagation.css'
 
-export class index extends Component {
+export class Navagation extends Component {
     render() {
         return (
             <div id='navbar'>
@@ -13,4 +13,4 @@ export class index extends Component {
     }
 }
 
-export default withRouter(index)
+export default withRouter(Navagation)

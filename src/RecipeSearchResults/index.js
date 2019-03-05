@@ -3,9 +3,9 @@ import { Container, Row, Col } from 'reactstrap';
 import '../App.css';
 import './RecipeSearchResults.css'
 
-const RecipeSearchResults = (props) => {
-    console.log(props, 'from recipe Search')
-    let recipeList = props.results.map((recipe) => {
+const RecipeSearchResults = (results) => {
+    console.log(results, 'from recipe Search')
+    let recipeList = results.map((recipe) => {
 
         return (
 

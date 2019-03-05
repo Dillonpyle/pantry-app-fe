@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import IngredientsSearchContainer from './IngredientsSearchContainer';
+import IngredientsSearchContainer from './ingredients/IngredientsSearchContainer';
 import Home from './Home';
 import Register from './register';
-import Recipes from './Recipes/Form'
+import Recipes from './Recipes/Form';
+import AddRecipes from './RecipeAdd';
 import Navagation from './Navagation';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
@@ -146,10 +147,11 @@ class App extends Component {
             <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state.username} user_id={this.state.user_id} />} />
             <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} ing_list={this.state.ing_list} deleteIngredient={this.deleteIngredient} />} />
             <Route exact path='/recipes' render={() => <Recipes getRecipe={this.getRecipe} recipes={this.state.recipes} user={this.state} />} />
+            <Route exact path='/addRecipes' render={() => <AddRecipes recipes={this.state.recipes} user={this.state} />} />
           </Switch>
         </main>
         <footer>
-          <Navagation />
+          <Navagation getRecipe={this.getRecipe} />
         </footer>
       </React.Fragment>
 

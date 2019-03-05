@@ -2,13 +2,10 @@ import React, { Component } from 'react'
 import './IngredientsSearch.css'
 
 class IngredientsSearch extends Component {
-	constructor() {
-		super()
 
-		this.state = {
-			search: '',
+	state = {
+		search: '',
 
-		}
 	}
 
 	handleChange = (e) => {
@@ -28,7 +25,7 @@ class IngredientsSearch extends Component {
 			<div id="ingredientsSearch">
 				<form onSubmit={this.handleSubmit.bind(null)}>
 					<input name='search' type='text' placeholder='Search ingredient...' value={this.state.search} onChange={this.handleChange} />
-					<button id="ingredientSearchButton" type="submit">Search</button>
+					<button id="ingredientSearchButton" type="submit" >Search</button>
 				</form>
 
 			</div>
