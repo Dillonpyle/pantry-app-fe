@@ -71,7 +71,7 @@ class IngredientsSearchContainer extends Component {
 			if (!response.ok) {
 				throw Error(response.statusText)
 			}
-
+			this.props.listIngredients()
 			const parsedResponse = await response.json()
 			console.log(parsedResponse);
 

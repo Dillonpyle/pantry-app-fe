@@ -15,7 +15,8 @@ class App extends Component {
     user_id: '',
     username: '',
     ing_list: [],
-    recipes: []
+    recipes: [],
+    ing_id: ''
   }
 
   getRecipe = async (e) => {
@@ -124,17 +125,42 @@ class App extends Component {
 
       const ingredientsList = await response.json()
 
+
       this.setState({
         ing_list: ingredientsList
       })
+      console.log(this.state.ing_list)
     } catch (err) {
       console.log(err, 'from listIngredients')
     }
   }
 
   deleteIngredient = async (e) => {
-    e.preventDefault()
-    // console.log("deleteIngredient was called");
+    let ingredient = e
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/pantry/add`, {
+        method: 'DELETE',
+        credentials: "include",
+        body: JSON.stringify({
+          user_id: this.state.user_id,
+          ingredient_id: ingredient
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+
+      this.listIngredients()
+
+
+    } catch (err) {
+      console.log(err, 'from listIngredients')
+    }
+
   }
 
 
@@ -144,7 +170,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />} />
-            <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state.username} user_id={this.state.user_id} />} />
+            <Route exact path='/ingredients' render={() => <IngredientsSearchContainer user={this.state.username} user_id={this.state.user_id} listIngredients={this.listIngredients} />} />
             <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} ing_list={this.state.ing_list} deleteIngredient={this.deleteIngredient} />} />
             <Route exact path='/recipes' render={() => <Recipes getRecipe={this.getRecipe} recipes={this.state.recipes} user={this.state} />} />
             <Route exact path='/addRecipes' render={() => <AddRecipes recipes={this.state.recipes} user={this.state} />} />

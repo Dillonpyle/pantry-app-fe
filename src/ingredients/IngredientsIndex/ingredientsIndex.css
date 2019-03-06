@@ -2,6 +2,10 @@
     font-family: 'Fredericka the Great', cursive;
     font-size: 28px;
     color: rgb(238, 236, 236);
+    display: inline;
+}
+.ingredientDelete{
+    display: inline;
 }
 #ingredientMainDiv{
     width: 75%;

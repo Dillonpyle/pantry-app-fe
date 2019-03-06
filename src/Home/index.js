@@ -5,7 +5,7 @@ import './home.css'
 
 
 // Links to other pages and displays ingredients index
-const index = ({ username, ing_list, deleteIngredient }) => {
+const index = ({ username, ing_list, deleteIngredient, user_id }) => {
 
     return (
         <div id='homeBody'>
@@ -15,7 +15,7 @@ const index = ({ username, ing_list, deleteIngredient }) => {
                 <Link to={'/recipes'}>  <button className='homeButtons' > Recipe</button> </Link>
                 <Link to={'/addRecipes'}><button className='homeButtons'>Add Recipe</button> </Link>
             </div>
-            <IngredientsIndex ing_list={ing_list} deleteIngredient={deleteIngredient} />
+            <IngredientsIndex ing_list={ing_list} deleteIngredient={deleteIngredient} user_id={user_id} />
         </div >
     )
 }
