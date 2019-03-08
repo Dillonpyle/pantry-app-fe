@@ -6,7 +6,7 @@ const ingredientsIndex = ({ ing_list, deleteIngredient, user_id }) => {
 
     let ingList = ing_list.map((ingredient) => {
         return (
-            <Col key={ingredient.id} className='ingredient' lg='4'> {ingredient.name} <h2 className='ingredientDelete' onClick={deleteIngredient.bind(null, ingredient.id)}>X</h2></Col>
+            <Col key={ingredient.id} className='ingredient' lg='4'> {ingredient.name} <i onClick={deleteIngredient.bind(null, ingredient.id)} className="fa fa-trash-o icon" aria-hidden="true"></i></Col>
         )
     })
 

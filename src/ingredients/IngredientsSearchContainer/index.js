@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import IngredientsSearch from '../IngredientsSearch';
-import IngredientsResults from '../IngredientsResults';
 import IngredientAdd from '../IngredientAdd';
 import './IngredientsSearchContainer.css'
 
@@ -16,8 +14,7 @@ class IngredientsSearchContainer extends Component {
 
 
 	searchIngredients = async (query, e) => {
-		e.preventDefault()
-		console.log(`search Ingredients being called with query:${query} and e:${e}`);
+		console.log(`search Ingredients being called with query:${query} and e:`);
 
 		try {
 			const response = await fetch(`${process.env.REACT_APP_API_URL}/ingredients/search`, {
@@ -47,10 +44,10 @@ class IngredientsSearchContainer extends Component {
 		}
 	}
 
-	addIngredient = async (ing_id, e) => {
-		e.preventDefault()
+	addIngredient = async (ing_id) => {
+
 		console.log(this.props.user_id);
-		console.log(`addIngredient was called ing_id is ${ing_id}, e is ${e}, user_id is ${this.props.user_id}`);
+		console.log(`addIngredient was called ing_id is ${ing_id}, e is , user_id is ${this.props.user_id}`);
 		try {
 			console.log(ing_id);
 
@@ -82,14 +79,15 @@ class IngredientsSearchContainer extends Component {
 
 
 
+
+
+
 	render() {
-		console.log(this.props, 'this is props on ing search container');
+
 		return (
 			<div>
-				<h1 id='searchContainerHeader'>Manage Your Pantry</h1>
-				<IngredientsSearch searchIngredients={this.searchIngredients} />
-				{this.state.ing_name ? <IngredientsResults results={this.state} addIngredient={this.addIngredient} /> : null}
-				<IngredientAdd />
+				<h1 id='searchContainerHeader'>Add to Your Pantry</h1>
+				<IngredientAdd addIngredient={this.addIngredient} searchIngredients={this.searchIngredients} handleChange={this.handleChange} />
 			</div>
 
 

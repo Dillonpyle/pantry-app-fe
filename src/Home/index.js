@@ -12,8 +12,7 @@ const index = ({ username, ing_list, deleteIngredient, user_id }) => {
             <h1 id='homeHeader'>{username}'s Pantry</h1>
             <div id='homePageButtons'>
                 <Link to={'/ingredients'}><button className='homeButtons'>Ingredients</button></Link>
-                <Link to={'/recipes'}>  <button className='homeButtons' > Recipe</button> </Link>
-                <Link to={'/addRecipes'}><button className='homeButtons'>Add Recipe</button> </Link>
+                <Link to={'/recipes'}>  <button className='homeButtons' >Search Recipes</button> </Link>
             </div>
             <IngredientsIndex ing_list={ing_list} deleteIngredient={deleteIngredient} user_id={user_id} />
         </div >

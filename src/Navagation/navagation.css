@@ -3,6 +3,7 @@
     text-decoration: none;
     height: 100%;
     padding-top: 10px;
+    color: rgb(238, 236, 236);
 }
 #homeLink{
     font-family: 'Fredericka the Great', cursive;
@@ -20,4 +21,15 @@ a:-webkit-any-link{
     float: right;
     padding-right: 20px;
     font-size: 32px;
+}
+.icon_ing{
+   padding-left: 56px;  
+    font-size: 38px;
+    color: rgb(238, 236, 236);
+}
+
+@media(min-width: 500px){
+    .icon_ing{
+        visibility: hidden;
+    }
 }

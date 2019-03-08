@@ -7,6 +7,7 @@ export class Navagation extends Component {
         return (
             <div id='navbar'>
                 <Link to={'/Home'} id='homeLink'>Home </Link>
+                <Link to={'/ingredients'} ><i className="fa fa-plus-square icon_ing" aria-hidden="true"></i ></Link>
                 <Link to={'/'} id="logout">Logout</Link>
             </div>
         )

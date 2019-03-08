@@ -7,6 +7,11 @@
 .ingredientDelete{
     display: inline;
 }
+
+.icon{
+    font-size: 38px;
+    color: rgb(238, 236, 236);
+}
 #ingredientMainDiv{
     width: 75%;
     height: 70vh;

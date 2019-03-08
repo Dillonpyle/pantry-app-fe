@@ -11,8 +11,7 @@ const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) =
     return (
         <React.Fragment>
             <div id='registerHeader'>
-                <h1>PantryPal</h1>
-                <h2>Keep track of your pantry</h2>
+                <h1>My Pantry</h1>
             </div>
             <div id='form'>
                 <h3>Login Here</h3>
